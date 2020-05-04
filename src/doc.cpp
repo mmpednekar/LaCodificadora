@@ -300,34 +300,40 @@ class Prescription
 
         Prescription()
         {
+            Py_Initialize();
+
             pName = PyString_FromString("mail_code");
             presp_pModule = PyImport_Import(pName);
 
-            if (!presp_pModule) {
-                printf("ERROR");}
-
-            Py_DECREF(pName);
-        }
-
-        int pyFuncModule()
-        {
             if (presp_pModule) {
                 presp_pFunc = PyObject_GetAttrString(presp_pModule, "send_simple_message");
-            } else {
-                printf("ERROR");}
-        }
+            }
 
+        }
         int sendPrescription()
         {
+            const char *temp;
             pArgs = PyTuple_New(3);
-            paramValue = PyString_FromString(&this->patient_name[0]);
-            PyTuple_SetItem(pArgs, 0, paramValue);
-            paramValue = PyString_FromString(&this->email_id[0]);
-            PyTuple_SetItem(pArgs, 1, paramValue);
-            paramValue = PyString_FromString(&this->presecription_list[0]);
-            PyTuple_SetItem(pArgs, 2, paramValue);
 
-            PyObject_CallObject(presp_pFunc, pArgs);
+            temp = &this->patient_name[0];
+            paramValue = PyString_FromString(temp);
+            PyTuple_SetItem(pArgs, 0, paramValue);      //create arguments for functions
+
+            temp = &this->email_id[0];
+            paramValue = PyString_FromString(temp);
+            PyTuple_SetItem(pArgs, 1, paramValue);      //create arguments for functions
+
+            temp = &this->presecription_list[0];
+            paramValue = PyString_FromString(temp);
+            PyTuple_SetItem(pArgs, 2, paramValue);      //create arguments for functions
+
+            if (PyCallable_Check(presp_pFunc)) {
+                PyObject_CallObject(presp_pFunc, pArgs);
+            } else {
+                    std::cout << "Not Callable" << std::endl;
+                    PyErr_Print ();
+            }
+
             return 0;
         }
 
@@ -357,11 +363,11 @@ class Prescription
                     if(output.compare("NULL")!=0)
                         prescription_note +="\n"+output;
                 }
-                this->presecription_list = output;
+                this->presecription_list = prescription_note;
             }
-            cout<<"name"<<endl;
-            cout<<"mailid"<<endl;
-            cout<<"prescription list"<<endl;
+            cout<<"name"<<this->patient_name<<endl;
+            cout<<"mailid"<<this->email_id<<endl;
+            cout<<"prescription list"<<this->presecription_list<<endl;
         }
 };
 
@@ -407,6 +413,7 @@ int main(int argc, char *argv[])
             Prescription prescription;
             wait_flag = 1;
             prescription.setPrescriptionValues(speechmodule);
+            prescription.sendPrescription();
             enable_assitant = 0;
             wait_flag = 0;
             cout << output;
