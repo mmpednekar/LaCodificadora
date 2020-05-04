@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+PySpeechModule	doc.cpp	/^        PySpeechModule(const char *stt_module_name, const char *tts_module_name)$/;"	f	class:PySpeechModule
+PySpeechModule	doc.cpp	/^class PySpeechModule$/;"	c	file:
+engine	text_to_speech.py	/^engine = pyttsx3.init()$/;"	v
+main	doc.cpp	/^int main(int argc, char *argv[])$/;"	f
+mlProcessing	doc.cpp	/^        string *mlProcessing(string string)$/;"	f	class:PySpeechModule
+pArgs	doc.cpp	/^        PyObject *pArgs, *pValue, *paramValue;$/;"	m	class:PySpeechModule	file:
+pName	doc.cpp	/^        PyObject *pName, *stt_pModule, *tts_pModule, *stt_pFunc, *tts_pFunc;$/;"	m	class:PySpeechModule	file:
+pValue	doc.cpp	/^        PyObject *pArgs, *pValue, *paramValue;$/;"	m	class:PySpeechModule	file:
+paramValue	doc.cpp	/^        PyObject *pArgs, *pValue, *paramValue;$/;"	m	class:PySpeechModule	file:
+pyFuncModule	doc.cpp	/^        int pyFuncModule(const char *stt_module_name, const char *tts_module_name)$/;"	f	class:PySpeechModule
+scheduleFunction	doc.cpp	/^        int scheduleFunction()$/;"	f	class:PySpeechModule
+speechToText	doc.cpp	/^        string speechToText()$/;"	f	class:PySpeechModule
+speech_to_text	speech_to_text.py	/^def speech_to_text():$/;"	f
+stt_pFunc	doc.cpp	/^        PyObject *pName, *stt_pModule, *tts_pModule, *stt_pFunc, *tts_pFunc;$/;"	m	class:PySpeechModule	file:
+stt_pModule	doc.cpp	/^        PyObject *pName, *stt_pModule, *tts_pModule, *stt_pFunc, *tts_pFunc;$/;"	m	class:PySpeechModule	file:
+textToSpeech	doc.cpp	/^        string textToSpeech(const char * message)$/;"	f	class:PySpeechModule
+text_to_speech	text_to_speech.py	/^def text_to_speech(message):$/;"	f
+tts_pFunc	doc.cpp	/^        PyObject *pName, *stt_pModule, *tts_pModule, *stt_pFunc, *tts_pFunc;$/;"	m	class:PySpeechModule	file:
+tts_pModule	doc.cpp	/^        PyObject *pName, *stt_pModule, *tts_pModule, *stt_pFunc, *tts_pFunc;$/;"	m	class:PySpeechModule	file:
